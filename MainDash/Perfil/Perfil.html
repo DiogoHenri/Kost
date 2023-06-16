@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Mohammad Sahragard">
+    <title>Responsive Profile Page</title>  
+    <!-- import font icon (fontawesome) -->
+    <script src="https://kit.fontawesome.com/b8b432d7d3.js" crossorigin="anonymous"></script>
+    <!-- import css file (style.css) -->
+    <link rel="stylesheet" href="/MainDash/Perfil/style.css">
+</head>
+<body>
+    <div class="container">
+
+        <div class="profile-card">
+            <div class="profile-header"><!-- profile header section -->
+                <div class="main-profile">
+                    <div class="profile-image"></div>
+                    <div class="profile-names">
+                        <h1 class="username">User</h1>
+                        <small class="page-title">cliente</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-body"><!-- profile body section -->
+                <div class="profile-actions">
+                    <button class="follow">Follow</button>
+                    <button class="message">Message</button>
+                    <section class="bio">
+                        <div class="bio-header">
+                            <i class="fa fa-info-circle"></i>
+                            Bio
+                        </div>
+                        <p class="bio-text">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        </p>
+                    </section>
+                </div>
+
+                <div class="account-info">
+                    <div class="data">
+                        <div class="important-data">
+                            <section class="data-item">
+                                <h3 class="value">55</h3>
+                                <small class="title">chamados</small>
+                            </section>
+                            <section class="data-item">
+                                <h3 class="value">47,50</h3>
+                                <small class="title">plano atual</small>
+                            </section>
+                            </section>
+                            <section class="data-item">
+                                <h3 class="value">376</h3>
+                                <small class="title">Loja</small>
+                            </section>
+                        </div>
+                        <div class="other-data">
+                            <section class="data-item">
+                                <h3 class="value">35</h3>
+                                <small class="title">Contatos</small>
+                            </section>
+                            <section class="data-item">
+                                <h3 class="value">25</h3>
+                                <small class="title">mensagens</small>
+                            </section>
+                            
+                        </div>
+                        
+                    </div>
+
+                    <div class="social-media">
+                        <span>Follow me in:</span>
+                        <a href="" class="media-link"><i class="fab fa-facebook-square"></i></a>
+                        <a href="https://twitter.com/" class="media-link"><i class="fab fa-twitter-square"></i></a>
+                        <a href="https://www.linkedin.com" class="media-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com" class="media-link"><i class="fab fa-instagram-square"></i></a>
+                        <a href="https://github.com" class="media-link"><i class="fab fa-github-square"></i></a>
+                        <button class="post-CTA" id="changeURLButton">🖊</button>
+                        <script>
+                            // Função para alterar as URLs das redes sociais
+                            function alterarURLs() {
+                                // Obter todos os elementos com a classe "media-link"
+                                var mediaLinks = document.querySelectorAll('.media-link');
+                                
+                                // Percorrer cada elemento e solicitar a nova URL
+                                mediaLinks.forEach(function(link) {
+                                  var novaURL = prompt('Digite a nova URL para ' + link.className + ':');
+                                  // Verificar se a nova URL não é nula e atualizar o atributo "href"
+                                  if (novaURL !== null) {
+                                    link.href = novaURL;
+                                  }
+                                });
+                              }
+                              
+                              // Adicionar um evento de clique ao botão de alteração de URLs
+                              var changeURLButton = document.getElementById('changeURLButton');
+                              changeURLButton.addEventListener('click', alterarURLs);
+                                                </script>
+                    </div>
+
+                   
+                    <button class="post-CTA" id="editButton">Editar🖊</button>
+                   <script>
+                    // Função para editar o perfil
+function editarPerfil() {
+  // Obter o elemento do nome do usuário
+  var usernameElement = document.querySelector('.username');
+
+  // Obter o elemento da imagem de fundo do último post
+  var postCoverElement = document.querySelector('.post-cover');
+  
+  // Solicitar e armazenar o novo nome do usuário
+  var novoNome = prompt('Digite o novo nome do usuário:');
+  
+  // Verificar se o novo nome não é nulo e atualizá-lo
+  if (novoNome !== null) {
+    usernameElement.textContent = novoNome;
+  }
+  
+  // Solicitar e armazenar a nova URL da imagem de fundo do último post
+  var novaURL = prompt('Digite a nova URL da imagem de fundo:');
+  
+  // Verificar se a nova URL não é nula e atualizar a imagem de fundo
+  if (novaURL !== null) {
+    postCoverElement.style.backgroundImage = "url('" + novaURL + "')";
+  }
+}
+
+// Adicionar um evento de clique ao botão de edição
+var editButton = document.getElementById('editButton');
+editButton.addEventListener('click', editarPerfil);
+                   </script>
+                     
+                        <a href="/MainDash/Dash.html">
+                        <button class="post-CTA"">Voltar a pagina principal</button>
+                        </a>
+              
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
