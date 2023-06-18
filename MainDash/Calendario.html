@@ -636,7 +636,7 @@
                     <li class="flex">
                       <a
                         class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="#"
+                        href="/MainDash/Perfil/Perfil.html"
                       >
                         <svg
                           class="w-4 h-4 mr-3"
@@ -652,31 +652,10 @@
                             d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                           ></path>
                         </svg>
-                        <span>Profile</span>
+                        <span>Perfil</span>
                       </a>
                     </li>
                     <li class="flex">
-                      <a
-                        class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="#"
-                      >
-                        <svg
-                          class="w-4 h-4 mr-3"
-                          aria-hidden="true"
-                          fill="none"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                          ></path>
-                          <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                        <span>Settings</span>
-                      </a>
                     </li>
                     <li class="flex">
                       <a
@@ -716,197 +695,269 @@
 
             <p class="mb-8 text-gray-600 dark:text-gray-400">
              Nesta aba de "Calendario", você podera criar suas tarefas diarias, editar suas rotinas de alimentação e deixar caso tenha falhado ou concluido um dia.
+             <strong>você pode criar tarefas e ações novas no calendario, basta criar e levar ao dia desejado!</strong>
         
             </p>
         <main class="h-full pb-16 overflow-y-auto">
             
           
 
-    <div class="grid gap-6 mb-8 md:grid-cols-2">
-        <!-- Doughnut/Pie chart -->
-        <div
-          class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
-        >
+    
         <div class="container px-6 mx-auto grid">
-            <h1>Calendario do Dia</h1>
-    <div class="content">
-        <div class="content--add-item">
-            <input type="text" id="input-new-task" placeholder="Digite sua nova task">
-            <button onclick="newTask()" id="btn-new-task" title="Clique aqui para adicionar uma nova task">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-                </svg>
-            </button>
-        </div>
-        <div class="content--body">
-            <ol id="to-do-list">
-            </ol>
-        </div>
-    </div>
-        </div>
-    <style>
-        :root{
-    --color-dark: rgb(14, 14, 14);
-    --color-dark2: rgb(32, 32, 32);
-    --color-dark3: rgb(22, 22, 22);
-    --color-white: #fff;
-    --color-green: #7e3af2;
-    --color-green2: rgb(168, 57, 6);
-    --color-red: rgb(184, 40, 35);
-    --color-red2: rgb(146, 22, 17);
+            <div class="board">
+              <form id="todo-form">
+                <input type="text" placeholder="Nova tarefa..." id="todo-input" />
+                <button type="submit">Adicionar +</button>
+              </form>
+        
+              <div class="lanes">
+                <div class="swim-lane" id="todo-lane">
+                  <h3 class="heading">Segunda</h3>
+                  <p class="task" draggable="true">Café da manhã:</p>
+                  <p class="task" draggable="true">Lanche da manhã:</p>
+                  <p class="task" draggable="true">Almoço:</p>
+                  <p class="task" draggable="true">Lanche da tarde:</p>
+                  <p class="task" draggable="true">Jantar:</p>
+                  <p class="task" draggable="true">ceia:</p>
+                </div>
+
+                <div class="swim-lane" id="todo-lane">
+                  <h3 class="heading">Terça</h3>
+                  <p class="task" draggable="true">Café da manhã:</p>
+                  <p class="task" draggable="true">Lanche da manhã:</p>
+                  <p class="task" draggable="true">Almoço:</p>
+                  <p class="task" draggable="true">Lanche da tarde:</p>
+                  <p class="task" draggable="true">Jantar:</p>
+                  <p class="task" draggable="true">ceia:</p>
+                </div>
+
+                <div class="swim-lane" id="todo-lane">
+                  <h3 class="heading">Quarta</h3>
+                  <p class="task" draggable="true">Café da manhã:</p>
+                  <p class="task" draggable="true">Lanche da manhã:</p>
+                  <p class="task" draggable="true">Almoço:</p>
+                  <p class="task" draggable="true">Lanche da tarde:</p>
+                  <p class="task" draggable="true">Jantar:</p>
+                  <p class="task" draggable="true">ceia:</p>
+                </div>
+        
+                <div class="swim-lane">
+                  <h3 class="heading">Quinta</h3>
+                  <p class="task" draggable="true">Café da manhã:</p>
+                  <p class="task" draggable="true">Lanche da manhã:</p>
+                  <p class="task" draggable="true">Almoço:</p>
+                  <p class="task" draggable="true">Lanche da tarde:</p>
+                  <p class="task" draggable="true">Jantar:</p>
+                  <p class="task" draggable="true">ceia:</p>
+                </div>
+        
+                <div class="swim-lane">
+                  <h3 class="heading">Sexta</h3>
+                  <p class="task" draggable="true">Café da manhã:</p>
+                  <p class="task" draggable="true">Lanche da manhã:</p>
+                  <p class="task" draggable="true">Almoço:</p>
+                  <p class="task" draggable="true">Lanche da tarde:</p>
+                  <p class="task" draggable="true">Jantar:</p>
+                  <p class="task" draggable="true">ceia:</p>
+                </div>
+             
+            <style>
+              /* ---- RESET/BASIC STYLING ---- */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
-body{
-    font-family: 'Lato';
-    background-color: var(--color-dark);
-    color: var(--color-white);
-   
+*::-webkit-scrollbar {
+  display: none;
 }
 
-.content{
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
+.board {
+  width: 100%;
+  height: 100vh;
+  overflow: scroll;
+
+  
 }
 
-.content--add-item{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
+/* ---- FORM ---- */
+#todo-form {
+  padding: 32px 32px 0;
 }
 
-#input-new-task,
-#btn-new-task{
-    border: none;
-    font-size: 1rem;
-    outline: none;
-    padding: 1rem;
-    color: #7e3af2;
+#todo-form input {
+  padding: 12px;
+  margin-right: 12px;
+  width: 225px;
+
+  border-radius: 4px;
+  border: none;
+
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+  background: white;
+
+  font-size: 14px;
+  outline: none;
 }
 
-#input-new-task{
-    width: 20rem;
-    border-radius: 1rem;
+#todo-form button {
+  padding: 12px 32px;
+
+  border-radius: 4px;
+  border: none;
+
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+  background: #7e3af2;
+  color: black;
+
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
 }
 
-#btn-new-task{
-    background-color: var(--color-dark2);
-    color: var(--color-white);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    transition: .4s;
+/* ---- BOARD ---- */
+.lanes {
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+  gap: 16px;
+
+  padding: 24px 32px;
+
+  overflow: scroll;
+  height: 100%;
 }
 
-#btn-new-task:hover{
-    background-color: var(--color-dark3);
+.heading {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
-#to-do-list{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 0;
+.swim-lane {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  background: #7e3af2;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+
+  padding: 12px;
+  border-radius: 4px;
+  width: 225px;
+  min-height: 120px;
+
+  flex-shrink: 0;
 }
 
-#to-do-list li{
-    list-style-type: none;
-    font-size: 1.4rem;
-    text-transform: capitalize;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.task {
+  background: #24262d;
+  color: white;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+
+  padding: 12px;
+  border-radius: 4px;
+
+  font-size: 16px;
+  cursor: move;
 }
 
-#to-do-list li:hover{
-    background-color: var(--color-dark3);
-    transition: .4s;
-    border-radius: 1rem;
-    padding-left: 1rem;
+.is-dragging {
+  scale: 1.05;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+  background: rgb(50, 50, 50);
+  color: white;
 }
+</style>
 
-#btn-ok{
-    border: none;
-    background-color: var(--color-green);
-    color: var(--color-white);
-    padding: .4rem .8rem;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: .4s;
-}
 
-#btn-ok:hover{
-    background-color: var(--color-green2);
-}
-    </style>
-    <script>
-        const localStorageKey = 'to-do-list-gn'
 
-function validateIfExistsNewTask()
-{
-    let values     = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
-    let inputValue = document.getElementById('input-new-task').value
-    let exists     = values.find(x => x.name == inputValue)
-    return !exists ? false : true
-}
+<script>
+  //Drag
+  const draggables = document.querySelectorAll(".task");
+const droppables = document.querySelectorAll(".swim-lane");
 
-function newTask()
-{
-    let input = document.getElementById('input-new-task')
-    input.style.border = ''
+draggables.forEach((task) => {
+  task.addEventListener("dragstart", () => {
+    task.classList.add("is-dragging");
+  });
+  task.addEventListener("dragend", () => {
+    task.classList.remove("is-dragging");
+  });
+});
 
-    // validation
-    if(!input.value)
-    {
-        input.style.border = '1px solid red'
-        alert('Digite algo para inserir em sua lista')
+droppables.forEach((zone) => {
+  zone.addEventListener("dragover", (e) => {
+    e.preventDefault();
+
+    const bottomTask = insertAboveTask(zone, e.clientY);
+    const curTask = document.querySelector(".is-dragging");
+
+    if (!bottomTask) {
+      zone.appendChild(curTask);
+    } else {
+      zone.insertBefore(curTask, bottomTask);
     }
-    else if(validateIfExistsNewTask())
-    {
-        alert('Já existe uma task com essa descrição')
-    }
-    else
-    {
-        // increment to localStorage
-        let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
-        values.push({
-            name: input.value
-        })
-        localStorage.setItem(localStorageKey,JSON.stringify(values))
-        showValues()
-    }
-    input.value = ''
-}
+  });
+});
 
-function showValues()
-{
-    let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
-    let list = document.getElementById('to-do-list')
-    list.innerHTML = ''
-    for(let i = 0; i < values.length; i++)
-    {
-        list.innerHTML += `<li>${values[i]['name']}<button id='btn-ok' onclick='removeItem("${values[i]['name']}")'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/></svg></button></li>`
+const insertAboveTask = (zone, mouseY) => {
+  const els = zone.querySelectorAll(".task:not(.is-dragging)");
+
+  let closestTask = null;
+  let closestOffset = Number.NEGATIVE_INFINITY;
+
+  els.forEach((task) => {
+    const { top } = task.getBoundingClientRect();
+
+    const offset = mouseY - top;
+
+    if (offset < 0 && offset > closestOffset) {
+      closestOffset = offset;
+      closestTask = task;
     }
-}
+  });
 
-function removeItem(data)
-{
-    let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
-    let index = values.findIndex(x => x.name == data)
-    values.splice(index,1)
-    localStorage.setItem(localStorageKey,JSON.stringify(values))
-    showValues()
-}
+  return closestTask;
+};
 
-showValues()
-    </script>
+</script>
+<script>
+  // todo
+  const form = document.getElementById("todo-form");
+const input = document.getElementById("todo-input");
+const todoLane = document.getElementById("todo-lane");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const value = input.value;
+
+  if (!value) return;
+
+  const newTask = document.createElement("p");
+  newTask.classList.add("task");
+  newTask.setAttribute("draggable", "true");
+  newTask.innerText = value;
+
+  newTask.addEventListener("dragstart", () => {
+    newTask.classList.add("is-dragging");
+  });
+
+  newTask.addEventListener("dragend", () => {
+    newTask.classList.remove("is-dragging");
+  });
+
+  todoLane.appendChild(newTask);
+
+  input.value = "";
+});
+
+</script>
                 </div>
               </label>
             </div>

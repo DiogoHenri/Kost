@@ -636,7 +636,7 @@
                     <li class="flex">
                       <a
                         class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="#"
+                        href="/MainDash/Perfil/Perfil.html"
                       >
                         <svg
                           class="w-4 h-4 mr-3"
@@ -652,30 +652,7 @@
                             d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                           ></path>
                         </svg>
-                        <span>Profile</span>
-                      </a>
-                    </li>
-                    <li class="flex">
-                      <a
-                        class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="#"
-                      >
-                        <svg
-                          class="w-4 h-4 mr-3"
-                          aria-hidden="true"
-                          fill="none"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                          ></path>
-                          <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                        <span>Settings</span>
+                        <span>Perfil</span>
                       </a>
                     </li>
                     <li class="flex">
@@ -828,6 +805,7 @@
             </div>
 
             <!-- General elements -->
+            
             <h4
               class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
             >
@@ -839,6 +817,7 @@
               <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Nome</span>
                 <input
+                  id="name-input"
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="Digite seu Nome"
                 />
@@ -879,6 +858,7 @@
                   Quanto deseja investir
                 </span>
                 <select
+                  id="investimento-output"
                   class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                 >
                   <option>Desejo um acompanhamento basico</option>
@@ -893,6 +873,7 @@
                   Seleção de Interesses
                 </span>
                 <select
+                 id="interesse-output"
                   class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-multiselect focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                   multiple
                 >
@@ -905,8 +886,9 @@
               </label>
 
               <label class="block mt-4 text-sm">
-                <span class="text-gray-700 dark:text-gray-400">Mensagem</span>
+                <span class="text-gray-700 dark:text-gray-400">Descrição</span>
                 <textarea
+                  id="mensagem-output"
                   class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                   rows="3"
                   placeholder="Nos conte um pouco sobre você"
@@ -925,7 +907,37 @@
                   </span>
                 </label>
               </div>
+            </div>  
+            <div>
+              <button
+                id="submit-button"
+                type="submit"
+                href="/MainDash/Perfil/Perfil.html"
+                class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+              >
+                Enviar
+              </button>
             </div>
+          
+  <script>
+document.getElementById("submit-button").addEventListener("click", function() {
+  // Obtendo os valores dos campos
+  var nome = document.getElementById("name-input").value;
+  var investimento = document.getElementById("investimento-output").value;
+  var interesse = document.getElementById("interesse-output").value;
+  var mensagem = document.getElementById("mensagem-output").value;
+
+  // Codificando os valores para evitar problemas com caracteres especiais
+  var nomeCodificado = encodeURIComponent(nome);
+  var investimentoCodificado = encodeURIComponent(investimento);
+  var interesseCodificado = encodeURIComponent(interesse);
+  var mensagemCodificada = encodeURIComponent(mensagem);
+
+  // Redirecionando para a outra página com os parâmetros na URL
+  alert('Perfil atualizado com sucesso.');
+  window.location.href = "/MainDash/Calendario.html?nome=" + nomeCodificado + "&investimento=" + investimentoCodificado + "&interesse=" + interesseCodificado + "&mensagem=" + mensagemCodificada;
+});
+  </script>
             
 
                 </div>

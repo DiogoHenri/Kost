@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Mohammad Sahragard">
-    <title>Responsive Profile Page</title>  
+    <title>Perfil</title>  
     <!-- import font icon (fontawesome) -->
     <script src="https://kit.fontawesome.com/b8b432d7d3.js" crossorigin="anonymous"></script>
     <!-- import css file (style.css) -->
@@ -19,22 +19,39 @@
                 <div class="main-profile">
                     <div class="profile-image"></div>
                     <div class="profile-names">
-                        <h1 class="username">User</h1>
-                        <small class="page-title">cliente</small>
+                        <h1 id="name-input" class="username">User</h1>
+                        <small id="email-input"class="page-title">email</small>
                     </div>
                 </div>
             </div>
-
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                  // Obtém os dados do usuário do localStorage
+                  var storedUser = localStorage.getItem('user');
+              
+                  if (storedUser) {
+                    // Converte a string JSON em um objeto
+                    var user = JSON.parse(storedUser);
+              
+                    // Atualiza os elementos na página com os dados do usuário
+                    var nameElement = document.getElementById('name-input');
+                    var emailElement = document.getElementById('email-input');
+              
+                    nameElement.textContent = user.name;
+                    emailElement.textContent = user.email;
+                  }
+                });
+              </script>
             <div class="profile-body"><!-- profile body section -->
                 <div class="profile-actions">
-                    <button class="follow">Follow</button>
+                    <button id="interesse-output" class="follow">Emagrecimento</button>
                     <button class="message">Message</button>
                     <section class="bio">
                         <div class="bio-header">
                             <i class="fa fa-info-circle"></i>
                             Bio
                         </div>
-                        <p class="bio-text">
+                        <p id="mensagem-output" class="bio-text">
                             Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                         </p>
                     </section>
@@ -48,7 +65,7 @@
                                 <small class="title">chamados</small>
                             </section>
                             <section class="data-item">
-                                <h3 class="value">47,50</h3>
+                                <h3 class="value">R$47,50</h3>
                                 <small class="title">plano atual</small>
                             </section>
                             </section>
@@ -61,6 +78,10 @@
                             <section class="data-item">
                                 <h3 class="value">35</h3>
                                 <small class="title">Contatos</small>
+                            </section>
+                            <section class="data-item">
+                                <h3 id="investimento-output" class="value">R$50</h3>
+                                <small class="title">Investimento</small>
                             </section>
                             <section class="data-item">
                                 <h3 class="value">25</h3>
@@ -132,10 +153,11 @@ function editarPerfil() {
 // Adicionar um evento de clique ao botão de edição
 var editButton = document.getElementById('editButton');
 editButton.addEventListener('click', editarPerfil);
-                   </script>
+
+     </script>
                      
                         <a href="/MainDash/Dash.html">
-                        <button class="post-CTA"">Voltar a pagina principal</button>
+                        <button class="post-CTA">Voltar a pagina principal</button>
                         </a>
               
             </div>
